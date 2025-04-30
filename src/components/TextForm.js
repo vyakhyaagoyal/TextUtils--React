@@ -2,13 +2,18 @@ import React, {useState} from 'react'
 
 export default function TexthtmlForm(props) {
     const UpClick=()=>{
-        console.log("uppercase clicked");
+        //console.log("uppercase clicked");
         let upcase=text.toUpperCase();
         setText(upcase)
     }
 
+    const loclick=()=>{
+        let locase=text.toLowerCase();
+        setText(locase);
+    }
+
     const handleonchange=(e)=>{
-        console.log("onchange handled");
+        //console.log("onchange handled");
         setText(e.target.value)
     }
 
@@ -19,7 +24,7 @@ export default function TexthtmlForm(props) {
     <div>
         <h1>{props.heading}</h1>
         <div className="mb-3">
-            <label htmlFor="example" className="htmlFormlabel">Email address</label>
+            <label htmlFor="example" className="htmlFormlabel" style={{margin:'10px'}}>Email address</label>
             <input type="email" className="htmlhtmlFormcontrol" id="example" placeholder="name@example.com"></input>
         </div>
         <div className="mb-3">
@@ -27,7 +32,7 @@ export default function TexthtmlForm(props) {
             <textarea className="htmlFormcontrol" id="example1" rows="10" cols="70" style={{resize: "none"}} value={text} onChange={handleonchange}/>
         </div>
         <button className="btn btn-primary" onClick={UpClick} style={{margin:'10px'}}>Convert to uppercase</button>
-        <button className="btn btn-primary">Convert to lowercase</button>
+        <button className="btn btn-primary" onClick={loclick}>Convert to lowercase</button>
     </div>
     )
 }

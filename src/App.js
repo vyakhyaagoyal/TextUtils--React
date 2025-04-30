@@ -7,7 +7,7 @@ function App() {
     <>
     <Navbar title="New React" about="New About"/>
     <div className="container my-3">
-    <TextForm heading="Heading"/>
+    <TextForm heading="Enter text below"/>
     </div>
     </>
   );
