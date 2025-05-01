@@ -21,8 +21,10 @@ export default function TexthtmlForm(props) {
     const [text, setText] = useState('Enter text here');
     //setText("New text");
     return (
-    <div>
+        <>
+    <div className='container'>
         <h1>{props.heading}</h1>
+
         <div className="mb-3">
             <label htmlFor="example" className="htmlFormlabel" style={{margin:'10px'}}>Email address</label>
             <input type="email" className="htmlhtmlFormcontrol" id="example" placeholder="name@example.com"></input>
@@ -31,8 +33,18 @@ export default function TexthtmlForm(props) {
             <label htmlFor="example1" className="htmlFormlabel">enter text here</label>
             <textarea className="htmlFormcontrol" id="example1" rows="10" cols="70" style={{resize: "none"}} value={text} onChange={handleonchange}/>
         </div>
-        <button className="btn btn-primary" onClick={UpClick} style={{margin:'10px'}}>Convert to uppercase</button>
-        <button className="btn btn-primary" onClick={loclick}>Convert to lowercase</button>
+        <button className="btn btn-primary mx-1" onClick={UpClick}>Convert to uppercase</button>
+        <button className="btn btn-primary mx-1" onClick={loclick}>Convert to lowercase</button>
     </div>
+
+    <div className="container my-2">
+        <h1>Text summary</h1>
+        <p>{text.split(" ").length} words and {text.length} characters</p>
+        <p>Can be read in {text.split(" ").length*0.008} minutes</p>
+
+        <h2>Preview</h2>
+        <p>{text}</p>
+    </div>
+    </>
     )
 }
