@@ -12,6 +12,22 @@ export default function TexthtmlForm(props) {
         setText(locase);
     }
 
+    const clearclick=()=>{
+        let clearcase='';
+        setText(clearcase);
+    }
+
+    const copyclick=()=>{
+        var text=document.getElementById('example1');
+        text.select();
+        navigator.clipboard.writeText(text.value);
+    }
+
+    const removeExtraSpace=()=>{
+        let newText=text.split(/[ ]+/);
+        setText(newText.join(" "));
+    }
+
     const handleonchange=(e)=>{
         //console.log("onchange handled");
         setText(e.target.value)
@@ -35,10 +51,13 @@ export default function TexthtmlForm(props) {
         </div>
         <button className="btn btn-primary mx-1" onClick={UpClick}>Convert to uppercase</button>
         <button className="btn btn-primary mx-1" onClick={loclick}>Convert to lowercase</button>
+        <button className="btn btn-primary mx-1" onClick={clearclick}>Clear text</button>
+        <button className="btn btn-primary mx-1" onClick={copyclick}>Copy text</button>
+        <button className="btn btn-primary mx-1" onClick={removeExtraSpace}>Remove extra spaces</button>
     </div>
 
     <div className="container my-2">
-        <h1>Text summary</h1>
+        <h2>Text summary</h2>
         <p>{text.split(" ").length} words and {text.length} characters</p>
         <p>Can be read in {text.split(" ").length*0.008} minutes</p>
 
