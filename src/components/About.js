@@ -39,7 +39,7 @@ export default function About() {
         <p>The developer of this webpage is Vyakhya Goyal</p>
       </div>
 
-      <div className="aboutsection">
+      <div className='aboutsection'>
       <button type='button' className='btn btn-primary my-2' onClick={darkMode} value={text}>{text}</button>
       </div>
       

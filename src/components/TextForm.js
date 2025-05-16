@@ -38,16 +38,16 @@ export default function TexthtmlForm(props) {
     //setText("New text");
     return (
         <>
-    <div className='container'>
+    <div className='container' style={{color:props.mode==='dark'?'white':'black'}}>
         <h1>{props.heading}</h1>
 
         <div className="mb-3">
-            <label htmlFor="example" className="htmlFormlabel" style={{margin:'10px'}}>Email address</label>
-            <input type="email" className="htmlhtmlFormcontrol" id="example" placeholder="name@example.com"></input>
+            <label htmlFor="example" className="form-label" style={{margin:'10px'}}>Email address</label>
+            <input type="email" className="form-input" id="example" placeholder="name@example.com"></input>
         </div>
         <div className="mb-3">
-            <label htmlFor="example1" className="htmlFormlabel">enter text here</label>
-            <textarea className="htmlFormcontrol" id="example1" rows="10" cols="70" style={{resize: "none"}} value={text} onChange={handleonchange}/>
+            <label htmlFor="example1" className="form-label">enter text here</label>
+            <textarea className="form-control" id="example1" rows="10" cols="70" value={text} onChange={handleonchange} style={{backgroundColor:props.mode==='dark'?'#333':'white', color: props.mode === 'dark' ? 'white' : 'black'}}/>
         </div>
         <button className="btn btn-primary mx-1" onClick={UpClick}>Convert to uppercase</button>
         <button className="btn btn-primary mx-1" onClick={loclick}>Convert to lowercase</button>
@@ -56,7 +56,7 @@ export default function TexthtmlForm(props) {
         <button className="btn btn-primary mx-1" onClick={removeExtraSpace}>Remove extra spaces</button>
     </div>
 
-    <div className="container my-2">
+    <div className="container my-2" style={{color:props.mode==='dark'?'white':'black'}}>
         <h2>Text summary</h2>
         <p>{text.split(" ").length} words and {text.length} characters</p>
         <p>Can be read in {text.split(" ").length*0.008} minutes</p>
