@@ -5,27 +5,32 @@ export default function TexthtmlForm(props) {
         //console.log("uppercase clicked");
         let upcase=text.toUpperCase();
         setText(upcase)
+        props.showAlert("success", "converted to uppercase");
     }
 
     const loclick=()=>{
         let locase=text.toLowerCase();
         setText(locase);
+        props.showAlert("success", "converted to lowercase");
     }
 
     const clearclick=()=>{
         let clearcase='';
         setText(clearcase);
+        props.showAlert("success", "cleared text");
     }
 
     const copyclick=()=>{
         var text=document.getElementById('example1');
         text.select();
         navigator.clipboard.writeText(text.value);
+        props.showAlert("success", "copied text");
     }
 
     const removeExtraSpace=()=>{
         let newText=text.split(/[ ]+/);
         setText(newText.join(" "));
+        props.showAlert("success", "removed extra spaces");
     }
 
     const handleonchange=(e)=>{
@@ -62,7 +67,7 @@ export default function TexthtmlForm(props) {
         <p>Can be read in {text.split(" ").length*0.008} minutes</p>
 
         <h2>Preview</h2>
-        <p>{text}</p>
+        <p>{text.length>0?text:"Nothing to preview"}</p>
     </div>
     </>
     )

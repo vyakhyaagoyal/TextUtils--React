@@ -5,20 +5,31 @@ import './App.css';
 // import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
+import Alert from './components/Alert';
 
 function App() {
   const [mode,setMode]=useState('light');
+  const [alert,setAlert]=useState(null);    //alert is an object
+  const showAlert=(type,message)=>{
+    setAlert({
+      msg:message,
+      type:type
+    })
+    setTimeout(()=>{
+      setAlert(null);
+    },1500);
+  }
 
   const toggleMode=()=>{
     if(mode==="light"){
       setMode("dark")
       document.body.style.backgroundColor='#333';
-
+      showAlert("success","dark mode has been enabled");
     }
     else{
       setMode("light")
       document.body.style.backgroundColor='white'
-      
+      showAlert("success","light mode has been enabled");
     }
   }
 
@@ -31,8 +42,9 @@ function App() {
     </BrowserRouter> */}
 
     <Navbar title="New React" about="New About" mode={mode} toggleMode={toggleMode}/>
+    <Alert alert={alert}/>
     <div className="container my-3">
-    <TextForm heading="Enter text below to analyze" mode={mode}/>
+    <TextForm showAlert={showAlert} heading="Enter text below to analyze" mode={mode}/>
     {/* <About/> */}
     </div>
     </>
