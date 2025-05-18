@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import './App.css';
-import About from './components/About';
+// import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+// import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 // import ReactDOM from "react-dom/client";
 
 function App() {
@@ -43,17 +43,18 @@ function App() {
 
   return (
     <>
-    <Router>
+    {/* <Router> */}
     <Navbar title="New React" about="New About" mode={mode} toggleMode={toggleMode}/>
     <Alert alert={alert}/>
     <div className="container my-3">
-      <Routes>
-        <Route exact path="/about" element={<About/>}/>
-        <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter text below to analyze" mode={mode}/>}/>
-        <Route path="*" element={<><h1>404 Not Found</h1><p>The page you are looking for does not exist.</p></>}/>
-      </Routes>
+      {/* <Routes> */}
+        {/* <Route exact path="/about" element={<About/>}/> */}
+        {/* <Route exact path="/" element={}/> */}
+        <TextForm showAlert={showAlert} heading="Enter text below to analyze" mode={mode}/>
+        
+      {/* </Routes> */}
     </div>
-    </Router>
+    {/* </Router> */}
     </>
   );
 }
