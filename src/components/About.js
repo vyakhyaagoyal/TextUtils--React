@@ -16,8 +16,9 @@ export default function About() {
 
             setMyStyle({
                 color:'white',
-                backgroundColor:'black'
+                backgroundColor:'black',
             })
+            // document.body.style.backgroundColor='black'
         }
         else{
             let changeMode='Enable dark mode';
@@ -26,6 +27,7 @@ export default function About() {
                 color:'black',
                 backgroundColor:'white'
             })
+            // document.body.style.backgroundColor='white'
         }
         
     }
