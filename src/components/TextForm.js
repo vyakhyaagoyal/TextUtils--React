@@ -30,7 +30,7 @@ export default function TexthtmlForm(props) {
     const removeExtraSpace=()=>{
         let newText=text.split(/[ ]+/);
         setText(newText.join(" "));
-        props.showAlert("success", "removed extra spaces");
+        props.showAlert("success", "removed extra spaces"); 
     }
 
     const handleonchange=(e)=>{
@@ -54,16 +54,16 @@ export default function TexthtmlForm(props) {
             <label htmlFor="example1" className="form-label">enter text here</label>
             <textarea className="form-control" id="example1" rows="10" cols="70" value={text} onChange={handleonchange} style={{backgroundColor:props.mode==='dark'?'#333':'white', color: props.mode === 'dark' ? 'white' : 'black'}}/>
         </div>
-        <button className="btn btn-primary mx-1" onClick={UpClick}>Convert to uppercase</button>
-        <button className="btn btn-primary mx-1" onClick={loclick}>Convert to lowercase</button>
-        <button className="btn btn-primary mx-1" onClick={clearclick}>Clear text</button>
-        <button className="btn btn-primary mx-1" onClick={copyclick}>Copy text</button>
-        <button className="btn btn-primary mx-1" onClick={removeExtraSpace}>Remove extra spaces</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={UpClick}>Convert to uppercase</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={loclick}>Convert to lowercase</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={clearclick}>Clear text</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={copyclick}>Copy text</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={removeExtraSpace}>Remove extra spaces</button>
     </div>
 
     <div className="container my-2" style={{color:props.mode==='dark'?'white':'black'}}>
         <h2>Text summary</h2>
-        <p>{text.split(" ").length} words and {text.length} characters</p>
+        <p>{text.split(" ").filter((element)=>{ return element.length!==0}).length} words and {text.length} characters</p>
         <p>Can be read in {text.split(" ").length*0.008} minutes</p>
 
         <h2>Preview</h2>
